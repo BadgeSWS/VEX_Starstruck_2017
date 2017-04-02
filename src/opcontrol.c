@@ -38,7 +38,7 @@ void operatorControl() {
 
 	while(1){
 		clawLogic();
-		//edit
+		//editt
   }
 
 	printf("%s\n", "DONE OP CONTROL");
