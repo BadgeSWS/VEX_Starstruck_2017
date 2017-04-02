@@ -1,6 +1,7 @@
 #include "AutonMovement.h"
 #include "PID.h"
 #include "DriveTrain.h"
+#include "Claw.h"
 
 void drive(int dist, int range, float time) {
   long currentTime = millis();
@@ -37,6 +38,8 @@ void drive(int dist, int range, float time) {
     delay(20);
 
   }
+  setLeft(0);
+  setRight(0);
 }
 
 void turn(int angle, int range, float time) {
@@ -63,5 +66,41 @@ void turn(int angle, int range, float time) {
     if(count > 20){
       finished = true;
     }
+    delay(20);
   }
+  setLeft(0);
+  setRight(0);
+}
+void manipClaw(int deg, int range, float time) {
+  long currentTime = millis();
+
+  int count = 0;
+  bool finished = false;
+  int leftPotValue, rightPotValue;
+
+  while(!finished && currentTime > millis() - time*1000){
+
+    leftPotValue = getLeftPot();
+    rightPotValue = getRightPot();
+
+    int rightSpeed = getValue(&PID_rightClaw, rightPotValue, -deg, 0.0);
+    int leftSpeed = getValue(&PID_leftClaw, leftPotValue, deg, 0.0);
+
+    setLeftClaw(leftSpeed);
+    setRightClaw(rightSpeed);
+
+    if(abs(deg - leftPotValue) < range && abs(deg + rightPotValue) < range){
+      count++;
+    } else {
+      count = 0;
+    }
+
+    if(count > 20){
+      finished = true;
+    }
+
+    delay(20);
+  }
+  setLeftClaw(0);
+  setRightClaw(0);
 }
