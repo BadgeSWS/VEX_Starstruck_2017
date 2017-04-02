@@ -19,9 +19,16 @@ int getLeftEncoder() {
 int getRightEncoder() {
   return encoderGet(rightEncoder);
 }
-int getGyro(){
+int getGyro() {
   return gyroGet(gyro);
 }
-void calibrateGyro(){
+void calibrateGyro() {
   analogCalibrate(GYRO);
+}
+void resetGyro() {
+  gyroReset(gyro);
+}
+void resetEncoders() {
+  encoderReset(leftEncoder);
+  encoderReset(rightEncoder);
 }

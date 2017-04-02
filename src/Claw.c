@@ -28,15 +28,14 @@ void setRightClaw(int speed){
 }
 
 bool openClaw() {
-  joystickGetDigital(1, 6, JOY_UP);
+  return joystickGetDigital(1, 6, JOY_UP);
 }
 bool closeClaw() {
-  joystickGetDigital(1, 5, JOY_UP);
+  return joystickGetDigital(1, 5, JOY_UP);
 }
 bool linkClaw() {
-  joystickGetDigital(1, 7, JOY_LEFT);
+  return joystickGetDigital(1, 7, JOY_LEFT);
 }
-
 void clawLogic() {
   if(openClaw()){//Claw
     setLeftClaw(127);

@@ -10,6 +10,9 @@ void setRight(int speed);
 int getLeftEncoder();
 int getRightEncoder();
 void calibrateGyro();
+int getGyro();
+void resetGyro();
+void resetEncoders();
 
 extern Encoder leftEncoder, rightEncoder;
 extern Gyro gyro;

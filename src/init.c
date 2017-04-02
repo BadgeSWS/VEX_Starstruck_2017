@@ -44,11 +44,11 @@ void initialize() {
   printf("%s\n", "INIT");
 
   printf("%s\n", "INITIALIZING PID STRUCTS");
-  pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -127, 127);
-  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -127, 127);
-  pid(&PID_leftClaw, 1.0, 0.0, 0.0 , -127, 127);
-  pid(&PID_rightClaw, 1.0, 0.0, 0.0 , -127, 127);
-  pid(&PID_gyro, 1.0, 0.0, 0.0, -127, 127);
+  pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_leftClaw, 1.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_rightClaw, 1.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_gyro, 1.0, 0.0, 0.0, -500, 500);
 
   leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOT, false);
   rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOT, false);
