@@ -5,11 +5,13 @@
 
 void drive(int dist, int range, float time) {
   long currentTime = millis();
+
   resetGyro();
   resetEncoders();
+
   int count = 0;
   bool finished = false;
-  int leftDist, rightDist, gyroAngle;
+  float leftDist, rightDist, gyroAngle;
 
   while(!finished && currentTime > millis() - time*1000) {
 

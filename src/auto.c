@@ -13,6 +13,7 @@
 #include "main.h"
 #include "PID.h"
 #include "ElectricalConstants.h"
+#include "AutonMovement.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
@@ -31,9 +32,7 @@
 void autonomous() {
   printf("%s\n", "STARTING AUTON");
 
-  while(1){
-    
-  }
+  
 
   printf("%s\n", "DONE AUTON");
 }
