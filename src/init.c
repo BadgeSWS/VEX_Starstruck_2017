@@ -41,20 +41,24 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-  printf("%s\n", "INIT");
+  printf("%s\n", "STARTING INIT");
+
+  printf("%s\n", "REST GYRO");
   resetGyro();
-  
+
   printf("%s\n", "INITIALIZING PID STRUCTS");
   pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_rightDrive, 2.0, 0.0, 0.0 , -500, 500);
   pid(&PID_leftClaw, 1.0, 0.0, 0.0 , -500, 500);
   pid(&PID_rightClaw, 1.0, 0.0, 0.0 , -500, 500);
   pid(&PID_gyro, 1.0, 0.0, 0.0, -500, 500);
 
+  printf("%s\n", "SETTING VARIABLES");
   leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOT, false);
   rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOT, false);
   gyro = gyroInit(GYRO, 1);
 
+  printf("%s\n", "CALIBRATING GYROS");
   calibrateGyro();
   calibratePots();
 

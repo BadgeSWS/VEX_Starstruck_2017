@@ -12,6 +12,7 @@
 
 #include "main.h"
 #include "PID.h"
+#include "DriveTrain.h"
 #include "ElectricalConstants.h"
 #include "Claw.h"
 
@@ -34,9 +35,11 @@
  */
 
 void operatorControl() {
-	printf("%s\n", "STARTING OP CONTROL");
+	printf("%s\n", "STARTING OP CONTROL.");
 
 	while(1){
+		printf("%s\n", "LOOP");
+		driveLogic();
 		clawLogic();
   }
 

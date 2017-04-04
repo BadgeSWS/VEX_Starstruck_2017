@@ -32,7 +32,5 @@
 void autonomous() {
   printf("%s\n", "STARTING AUTON");
 
-  
-
   printf("%s\n", "DONE AUTON");
 }

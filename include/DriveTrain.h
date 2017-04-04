@@ -14,6 +14,8 @@ int getGyro();
 void resetGyro();
 void resetEncoders();
 
+void driveLogic();
+
 extern Encoder leftEncoder, rightEncoder;
 extern Gyro gyro;
 
