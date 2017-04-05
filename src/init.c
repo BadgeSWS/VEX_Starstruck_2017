@@ -48,7 +48,7 @@ void initialize() {
 
   printf("%s\n", "INITIALIZING PID STRUCTS");
   pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_rightDrive, 2.0, 0.0, 0.0 , -500, 500);
+  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -500, 500);
   pid(&PID_leftClaw, 1.0, 0.0, 0.0 , -500, 500);
   pid(&PID_rightClaw, 1.0, 0.0, 0.0 , -500, 500);
   pid(&PID_gyro, 1.0, 0.0, 0.0, -500, 500);
@@ -58,7 +58,7 @@ void initialize() {
   rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOT, false);
   gyro = gyroInit(GYRO, 1);
 
-  printf("%s\n", "CALIBRATING GYROS");
+  printf("%s\n", "CALIBRATING SENSORS");
   calibrateGyro();
   calibratePots();
 
