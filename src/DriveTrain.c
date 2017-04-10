@@ -36,6 +36,6 @@ void driveLogic() {
   int y = joystickGetAnalog(1, 3);
   int x = joystickGetAnalog(1, 1);
 
-  setLeft(y + x);
-  setRight(y - x);
+  setLeft((y*3.5+x*2)/3);
+  setRight((y*3.5-x*2)/3);
 }
