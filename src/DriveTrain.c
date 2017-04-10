@@ -33,8 +33,8 @@ void resetEncoders() {
   encoderReset(rightEncoder);
 }
 void driveLogic() {
-  int y = joystickGetAnalog(0, 3);
-  int x = joystickGetAnalog(0, 1);
+  int y = joystickGetAnalog(1, 3);
+  int x = joystickGetAnalog(1, 1);
 
   setLeft(y + x);
   setRight(y - x);

@@ -40,7 +40,8 @@ void operatorControl() {
 	while(1){
 		printf("%s\n", "LOOP");
 		driveLogic();
-		clawLogic();
+		//clawLogic();
+		delay(20);
   }
 
 	printf("%s\n", "DONE OP CONTROL");

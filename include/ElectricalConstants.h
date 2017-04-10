@@ -2,9 +2,9 @@
 #define _ELECTRICALCONSTANTS_H_
 
 static const int MOTOR_FRONT_LEFT = 2;
-static const int MOTOR_FRONT_RIGHT = 9;
-static const int MOTOR_BACK_LEFT = 1;
-static const int MOTOR_BACK_RIGHT = 8;
+static const int MOTOR_FRONT_RIGHT = 8;
+static const int MOTOR_BACK_LEFT = 3;
+static const int MOTOR_BACK_RIGHT = 9;
 
 static const int ENCODER_LEFT_TOP = 0;
 static const int ENCODER_LEFT_BOT = 1;
