@@ -9,11 +9,14 @@ int getRightPot();
 
 void setLeftClaw(int speed);
 void setRightClaw(int speed);
+void linkClaws();
 
+bool leftClaw();
+bool righClaw();
 bool openClaw();
 bool closeClaw();
 bool linkClaw();
 
-void clawLogic();
+bool clawLogic();
 
 #endif // _CLAW_H_

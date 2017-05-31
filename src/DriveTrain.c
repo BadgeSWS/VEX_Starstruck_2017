@@ -2,16 +2,19 @@
 #include "ElectricalConstants.h"
 #include "DriveTrain.h"
 
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 Encoder leftEncoder, rightEncoder;
 Gyro gyro;
 
 void setLeft(int speed) {
-  motorSet(MOTOR_FRONT_LEFT, speed);
-  motorSet(MOTOR_BACK_LEFT, speed);
+  motorSet(MOTOR_FRONT_LEFT, MAX(MIN(speed, 127),-127));
+  motorSet(MOTOR_BACK_LEFT, -MAX(MIN(speed, 127),-127));
 }
 void setRight(int speed) {
-  motorSet(MOTOR_FRONT_RIGHT, speed);
-  motorSet(MOTOR_BACK_RIGHT, speed);
+  motorSet(MOTOR_FRONT_RIGHT, -MAX(MIN(speed, 127),-127));
+  motorSet(MOTOR_BACK_RIGHT, -MAX(MIN(speed, 127),-127));
 }
 int getLeftEncoder() {
   return encoderGet(leftEncoder);
@@ -35,12 +38,6 @@ void resetEncoders() {
 void driveLogic() {
   int y = joystickGetAnalog(1, 3);
   int x = joystickGetAnalog(1, 1);
-
-  if(y == 0){
-      setLeft(x);
-      setRight(-x);
-  } else {
-    setLeft((y*6+x*4)/6);
-    setRight((y*6-x*4)/6);
-  }
+  setLeft(y+x);
+  setRight(y-x);
 }

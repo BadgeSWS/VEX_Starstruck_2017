@@ -15,6 +15,7 @@
 #include "ElectricalConstants.h"
 #include "Claw.h"
 #include "PID.h"
+#include "Tower.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -44,23 +45,27 @@ void initialize() {
   printf("%s\n", "STARTING INIT");
 
   printf("%s\n", "INITIALIZING PID STRUCTS");
-  pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_leftClaw, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_rightClaw, 1.0, 0.0, 0.0 , -500, 500);
-  pid(&PID_gyro, 1.0, 0.0, 0.0, -500, 500);
+  pid(&PID_leftDrive, 1.0, 0.0, 0.0 , -5000, 5000);
+  pid(&PID_rightDrive, 1.0, 0.0, 0.0 , -5000, 5000);
+  pid(&PID_leftClaw, 0.04, 0.0, 0.0 , -5000, 5000);
+  pid(&PID_rightClaw, 0.01, 0.0, 0.0 , -5000, 5000);
+  pid(&PID_gyro, 1.0, 0.0, 0.0, -5000, 5000);
+  pid(&PID_tower, 1.0, 0.0, 0.0, -5000, 5000);
 
-  printf("%s\n", "SETTING VARIABLES");
+  printf("%s\n", "SETTING ENCODERS");
   leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOT, false);
   rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOT, false);
+  towerEncoder = encoderInit(ENCODER_TOWER_TOP, ENCODER_TOWER_BOT, true);
+
+  printf("%s\n", "SETTING GYRO");
   gyro = gyroInit(GYRO, 1);
 
   printf("%s\n", "RESET GYRO");
   resetGyro();
 
   printf("%s\n", "CALIBRATING SENSORS");
-  calibrateGyro();
-  calibratePots();
+  //calibrateGyro();
+  //calibratePots();
 
   printf("%s\n", "DONE INIT");
 }

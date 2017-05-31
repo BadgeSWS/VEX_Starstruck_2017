@@ -15,6 +15,8 @@
 #include "DriveTrain.h"
 #include "ElectricalConstants.h"
 #include "Claw.h"
+#include "Tower.h"
+#include "AutonMovement.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -37,12 +39,33 @@
 void operatorControl() {
 	printf("%s\n", "STARTING OP CONTROL.");
 
+	printf("%s\n", "START OF LOOP");
+	int delayI = 0;
+
+	drive(48, 1, 1);
+
 	while(1){
-		printf("%s\n", "LOOP");
-		driveLogic();
-		//clawLogic();
+
+		// driveLogic();
+		// bool tl = towerLogic();
+		// bool cl = clawLogic();
+		//
+		// if(!tl && delayI <= 8){
+		// 	setTowerSpeed(12);
+		// 	delayI++;
+		// }
+		// if(tl){
+		// 	delayI = 0;
+		// }
+
+
+		// manipTower(89, 10, 1);
+
+
+
+		//Updates 50 times a second 1sec/0.02sec
 		delay(20);
   }
 
-	printf("%s\n", "DONE OP CONTROL");
+	printf("%s\n", "[WARNING] DONE OP CONTROL");
 }

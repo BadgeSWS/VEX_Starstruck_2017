@@ -2,7 +2,7 @@
 
 #include "PID.h"
 
-struct PID PID_gyro, PID_leftDrive, PID_rightDrive, PID_leftClaw, PID_rightClaw;
+struct PID PID_tower, PID_gyro, PID_leftDrive, PID_rightDrive, PID_leftClaw, PID_rightClaw;
 
 void pid(struct PID *pid, float p, float i, float d, float min, float max)
 {
