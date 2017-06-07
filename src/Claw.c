@@ -3,6 +3,7 @@
 #include "Claw.h"
 #include "ElectricalConstants.h"
 
+//Most of this is common getters and setters
 void calibrateLeftPot(){
     analogCalibrate(POT_LEFT);
 }
@@ -49,15 +50,18 @@ void linkClaws() {
 
 bool clawLogic() {
   //TODO ADD CHECK TO NOT MOVE CLAW IF GOING TO BREAK POT
-  if(openClaw()){//Claw
+  if(openClaw()){
+    //Full speed open
     setLeftClaw(127);
     setRightClaw(-127);
     return true;
   } else if (closeClaw()) {
+    //Full speed close
     setLeftClaw(-127);
     setRightClaw(127);
     return true;
   } else if (linkClaw()){
+    //Call the link claw function to PID both claws to a specific POT value
     linkClaws();
     return true;
   } else {

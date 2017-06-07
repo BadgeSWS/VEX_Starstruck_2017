@@ -9,10 +9,12 @@ Encoder leftEncoder, rightEncoder;
 Gyro gyro;
 
 void setLeft(int speed) {
+  //Motors cant be above 127 or below -127
   motorSet(MOTOR_FRONT_LEFT, MAX(MIN(speed, 127),-127));
   motorSet(MOTOR_BACK_LEFT, -MAX(MIN(speed, 127),-127));
 }
 void setRight(int speed) {
+  //Motors cant be above 127 or below -127
   motorSet(MOTOR_FRONT_RIGHT, -MAX(MIN(speed, 127),-127));
   motorSet(MOTOR_BACK_RIGHT, -MAX(MIN(speed, 127),-127));
 }
@@ -36,6 +38,7 @@ void resetEncoders() {
   encoderReset(rightEncoder);
 }
 void driveLogic() {
+  //KAJ drive
   int y = joystickGetAnalog(1, 3);
   int x = joystickGetAnalog(1, 1);
   setLeft(y+x);

@@ -66,6 +66,8 @@ void initialize() {
   printf("%s\n", "CALIBRATING SENSORS");
   //calibrateGyro();
   //calibratePots();
+  
+  //P.S. do not calibrate pots its a bad idea
 
   printf("%s\n", "DONE INIT");
 }

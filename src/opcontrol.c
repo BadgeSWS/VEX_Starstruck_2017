@@ -45,25 +45,22 @@ void operatorControl() {
 
 
 	while(1){
-		printf("Left: %d\n", getLeftPot());
-		printf("Right: %d\n", getRightPot());
-
+		//Moves the drive train
 		driveLogic();
+		//Moves the tower which holds the arm
 		bool tl = towerLogic();
+		//Moving the claw
 		bool cl = clawLogic();
 
 		if(!tl && delayI <= 8){
+			/* Stops the claw from going all the way down with 1 tap of the down button.
+			It jerks the claw up to stop downwards momentum. */
 			setTowerSpeed(12);
 			delayI++;
 		}
 		if(tl){
 			delayI = 0;
 		}
-
-
-
-
-
 
 		//Updates 50 times a second 1sec/0.02sec
 		delay(20);

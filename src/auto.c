@@ -32,10 +32,16 @@
 void autonomous() {
   printf("%s\n", "STARTING AUTON");
 
+  //Drive 40 inches - TAKES MAX 3 seconds
   drive(40, 1, 3);
+
+  //Lift the arm 89 degrees - TAKES MAX 2 seconds
 	manipTower(89, 1, 2);
-	printf("CLAW");
+
+  //Move each claw to a specified POT value - TAKES MAX 2 seconds
 	manipClaw(59800, 50750, 1, 2);
+
+  //Drive 16 inches - TAKES MAX 2 seconds
 	drive(16, 1, 2);
 
   printf("%s\n", "DONE AUTON");

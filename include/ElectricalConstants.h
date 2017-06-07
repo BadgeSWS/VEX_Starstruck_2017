@@ -1,6 +1,8 @@
 #ifndef _ELECTRICALCONSTANTS_H_
 #define _ELECTRICALCONSTANTS_H_
 
+// File of every port on the robot so that I can change it once here and every time I use that port it gets updated to every file
+
 static const int MOTOR_FRONT_LEFT = 9;
 static const int MOTOR_FRONT_RIGHT = 2;
 static const int MOTOR_BACK_LEFT = 10;

@@ -5,6 +5,7 @@
 Encoder towerEncoder;
 
 void setTowerSpeed(int speed){
+  //Negatives are for motors that are going the wrong way by default
   motorSet(MOTOR_TOWER_LEFT_A, speed);
   motorSet(MOTOR_TOWER_LEFT_B, -speed);
   motorSet(MOTOR_TOWER_LEFT_C, -speed);
@@ -26,6 +27,7 @@ bool towerLogic(){
     setTowerSpeed(127);
     return false;
   } else if (goDown){
+    //If the encoder values is under the "hitting the ground" threshold - PID to 15 degrees
     if(getTowerEncoderValue() <= 15)
       manipTower(15/7.0, 1, 0.2);
     else
