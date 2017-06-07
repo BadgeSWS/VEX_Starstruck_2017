@@ -42,24 +42,26 @@ void operatorControl() {
 	printf("%s\n", "START OF LOOP");
 	int delayI = 0;
 
-	drive(48, 1, 1);
+
 
 	while(1){
+		printf("Left: %d\n", getLeftPot());
+		printf("Right: %d\n", getRightPot());
 
-		// driveLogic();
-		// bool tl = towerLogic();
-		// bool cl = clawLogic();
-		//
-		// if(!tl && delayI <= 8){
-		// 	setTowerSpeed(12);
-		// 	delayI++;
-		// }
-		// if(tl){
-		// 	delayI = 0;
-		// }
+		driveLogic();
+		bool tl = towerLogic();
+		bool cl = clawLogic();
+
+		if(!tl && delayI <= 8){
+			setTowerSpeed(12);
+			delayI++;
+		}
+		if(tl){
+			delayI = 0;
+		}
 
 
-		// manipTower(89, 10, 1);
+
 
 
 

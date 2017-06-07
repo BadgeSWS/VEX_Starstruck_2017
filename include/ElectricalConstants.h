@@ -14,15 +14,15 @@ static const int MOTOR_TOWER_RIGHT_A = 4;//4
 static const int MOTOR_TOWER_RIGHT_B = 3;//3
 static const int MOTOR_TOWER_RIGHT_C = 3;//3
 
-static const int ENCODER_LEFT_TOP = 4;
-static const int ENCODER_LEFT_BOT = 3;
+static const int ENCODER_LEFT_TOP = 12;
+static const int ENCODER_LEFT_BOT = 11;
 static const int ENCODER_RIGHT_TOP = 1;
 static const int ENCODER_RIGHT_BOT = 2;
 
 static const int ENCODER_TOWER_TOP = 3;
 static const int ENCODER_TOWER_BOT = 4;
 
-static const int GYRO = 0;
+static const int GYRO = 10;
 
 static const int POT_LEFT = 2;
 static const int POT_RIGHT = 1;

@@ -32,5 +32,11 @@
 void autonomous() {
   printf("%s\n", "STARTING AUTON");
 
+  drive(40, 1, 3);
+	manipTower(89, 1, 2);
+	printf("CLAW");
+	manipClaw(59800, 50750, 1, 2);
+	drive(16, 1, 2);
+
   printf("%s\n", "DONE AUTON");
 }

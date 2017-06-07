@@ -7,7 +7,9 @@
 void drive(int dist, int range, float time) {
   long currentTime = millis();
 
-  resetGyro();
+  dist = dist * (360/(3.14*4));
+
+  //resetGyro();
   resetEncoders();
 
   int count = 0;
@@ -16,17 +18,17 @@ void drive(int dist, int range, float time) {
 
   while(!finished && currentTime > millis() - time*1000) {
 
-    leftDist = getLeftEncoder()*3.14;
-    rightDist = getRightEncoder()*3.14;
-    gyroAngle = getGyro();
+    leftDist = getLeftEncoder();
+    rightDist = getRightEncoder();
+    //gyroAngle = getGyro();
 
     int rightBaseSpeed = getValue(&PID_rightDrive, rightDist, dist, 0.0);
     int leftBaseSpeed = getValue(&PID_leftDrive, leftDist, dist, 0.0);
 
-    int gyroSpeed = getValue(&PID_gyro, gyroAngle, 0, 0.0);
+    // int gyroSpeed = getValue(&PID_gyro, gyroAngle, 0, 0.0);
 
-    setRight(rightBaseSpeed + gyroSpeed);
-    setLeft(leftBaseSpeed - gyroSpeed);
+    setRight(rightBaseSpeed); //+ gyroSpeed);
+    setLeft(leftBaseSpeed);// - gyroSpeed);
 
     if(abs(dist - leftDist) < range && abs(dist - rightDist) < range){
       count++;
@@ -43,6 +45,7 @@ void drive(int dist, int range, float time) {
   }
   setLeft(0);
   setRight(0);
+
 }
 
 void turn(int angle, int range, float time) {
@@ -109,7 +112,7 @@ void manipClaw(int leftDeg, int rightDeg, int range, float time) {
 }
 
 void manipTower(int deg, int range, float time) {
-  int encToGet = deg*7;
+  deg *= 7;
   long currentTime = millis();
 
   int count = 0;
@@ -120,11 +123,11 @@ void manipTower(int deg, int range, float time) {
 
     encoderValue = getTowerEncoderValue();
 
-    int towerSpeed = getValue(&PID_tower, encoderValue, encToGet, 0.0);
+    int towerSpeed = getValue(&PID_tower, encoderValue, deg, 0.0);
 
     setTowerSpeed(towerSpeed);
 
-    if(abs(encToGet - encoderValue) < range){
+    if(abs(deg - encoderValue) < range){
       count++;
     } else {
       count = 0;
@@ -136,4 +139,5 @@ void manipTower(int deg, int range, float time) {
 
     delay(20);
   }
+  setTowerSpeed(0);
 }

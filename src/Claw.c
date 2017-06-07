@@ -39,11 +39,11 @@ bool closeClaw() {
   return joystickGetDigital(1, 6, JOY_DOWN);
 }
 bool linkClaw() {
-  return joystickGetDigital(1, 7, JOY_DOWN);
+  return joystickGetDigital(1, 8, JOY_DOWN) || joystickGetDigital(1, 7, JOY_DOWN);
 }
 
 void linkClaws() {
-  setLeftClaw(-getValue(&PID_leftClaw, getLeftPot(), 57344, 0.0));
+  setLeftClaw(getValue(&PID_leftClaw, getLeftPot(), 57344, 0.0));
   setRightClaw(getValue(&PID_rightClaw, getRightPot(), 41424, 0.0));
 }
 
