@@ -2,9 +2,6 @@
 #define _CLAW_H_
 
 //Pots and the functions to use them
-void calibrateLeftPot();
-void calibrateRightPot();
-void calibratePots();
 int getLeftPot();
 int getRightPot();
 
@@ -14,8 +11,6 @@ void setRightClaw(int speed);
 void linkClaws();
 
 // Booleans for the buttons the driver needs to press to make the robot do tasks
-bool leftClaw();
-bool righClaw();
 bool openClaw();
 bool closeClaw();
 bool linkClaw();

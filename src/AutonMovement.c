@@ -48,7 +48,6 @@ void drive(int dist, int range, float time) {
   //Set motors to zero. After it is done you do not want your robot to continue moving
   setLeft(0);
   setRight(0);
-
 }
 
 // WE NEVER USE TURN, THE CODE ISNT TESTED OR WORKING

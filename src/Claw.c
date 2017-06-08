@@ -4,16 +4,6 @@
 #include "ElectricalConstants.h"
 
 //Most of this is common getters and setters
-void calibrateLeftPot(){
-    analogCalibrate(POT_LEFT);
-}
-void calibrateRightPot(){
-  analogCalibrate(POT_RIGHT);
-}
-void calibratePots() {
-  calibrateRightPot();
-  calibrateLeftPot();
-}
 int getLeftPot(){
   return analogReadCalibratedHR(POT_LEFT);
 }
@@ -26,12 +16,6 @@ void setLeftClaw(int speed){
 }
 void setRightClaw(int speed){
   motorSet(MOTOR_CLAW_RIGHT, speed);
-}
-bool leftClaw(){
-  return joystickGetDigital(1, 7, JOY_LEFT);
-}
-bool rightClaw(){
-  return joystickGetDigital(1, 7, JOY_RIGHT);
 }
 bool openClaw() {
   return joystickGetDigital(1, 6, JOY_UP);

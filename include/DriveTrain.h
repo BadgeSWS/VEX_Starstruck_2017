@@ -5,7 +5,6 @@
 
 
 //Drive encoders
-void initDriveTrainEncoders();
 int getLeftEncoder();
 int getRightEncoder();
 

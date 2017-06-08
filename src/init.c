@@ -45,12 +45,12 @@ void initialize() {
   printf("%s\n", "STARTING INIT");
 
   printf("%s\n", "INITIALIZING PID STRUCTS");
-  pid(&PID_leftDrive, 0.9, 0.0, 0.0 , -5000, 5000);
-  pid(&PID_rightDrive, 0.9, 0.0, 0.0 , -5000, 5000);
-  pid(&PID_leftClaw, -0.04, 0.0, 0.0 , -5000, 5000);
-  pid(&PID_rightClaw, 0.018, 0.0, 0.0 , -5000, 5000);
-  pid(&PID_gyro, 1.0, 0.0, 0.0, -5000, 5000);
-  pid(&PID_tower, 1.0, 0.0, 0.0, -5000, 5000);
+  pid(&PID_leftDrive, 0.9, 0.0, 0.0 , -127, 127);
+  pid(&PID_rightDrive, 0.9, 0.0, 0.0 , -127, 127);
+  pid(&PID_leftClaw, -0.04, 0.0, 0.0 , -127, 127);
+  pid(&PID_rightClaw, 0.018, 0.0, 0.0 , -127, 127);
+  pid(&PID_gyro, 1.0, 0.0, 0.0, -127, 127);
+  pid(&PID_tower, 1.0, 0.0, 0.0, -127, 127);
 
   printf("%s\n", "SETTING ENCODERS");
   leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOT, true);
@@ -66,7 +66,7 @@ void initialize() {
   printf("%s\n", "CALIBRATING SENSORS");
   //calibrateGyro();
   //calibratePots();
-  
+
   //P.S. do not calibrate pots its a bad idea
 
   printf("%s\n", "DONE INIT");
